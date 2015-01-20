@@ -1,10 +1,13 @@
----
 这是本人没事的时候捣鼓的博客。
+
+
 
 ## 第一步：了解
 
 了解[github](https://github.com)，了解github的命令，以及客户端的使用。
 了解[hexo](http://hexo.io)，安装，运行，以及简单的命令。
+
+
 
 ## 第二步：实现本地访问
 
@@ -17,6 +20,8 @@ $ npm install
 $ hexo server
 ```
 然后访问[localhost:4000](http://localhost:4000)，就可以看到一个简单的页面。
+
+
 
 ## 第三步：上传到github
 
