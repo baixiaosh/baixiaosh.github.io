@@ -160,6 +160,7 @@ margin on the iframe, cause it breaks stuff. */
 .post-content img { display: block; max-width: 100%; margin: 0 auto; height: auto; }
 /* The author credit area after the post */
 .post-footer { position: relative; margin: 4rem 0 0 0; padding: 4rem 0 0 0; border-top: #EBF2F6 1px solid; }
+.post-footer h5 { font-size: 1.6rem; margin: 0; }
 .post-footer h4 { font-size: 1.8rem; margin: 0; }
 .post-footer p { margin: 1rem 0; font-size: 1.4rem; line-height: 1.6em; }
 /* Create some space to the right for the share links */
