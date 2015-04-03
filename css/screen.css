@@ -97,7 +97,7 @@ margin on the iframe, cause it breaks stuff. */
 /* Hides shit */
 .hidden { text-indent: -9999px; visibility: hidden; display: none; }
 /* Creates a responsive wrapper that makes our content scale nicely */
-.inner { position: relative; width: 80%; max-width: 700px; margin: 0 auto; }
+.inner { position: relative; width: 80%; max-width: 1200px; margin: 0 auto; }
 /* Centres vertically yo. (IE8+) */
 .vertical { display: table-cell; vertical-align: middle; }
 /* ==========================================================================
@@ -146,7 +146,7 @@ margin on the iframe, cause it breaks stuff. */
 .publish-meta { position: absolute; top: 0; right: 0; padding: 4.3rem 0 4rem 0; text-align: right; }
 .publish-heading { display: block; font-weight: bold; }
 .publish-date { display: block; font-size: 1.4rem; line-height: 1.5em; }
-.comments-area { width: 80%; max-width: 700px; margin: 4rem auto; }
+.comments-area { width: 100%; max-width: 1200px; margin: 4rem auto; }
 #comment h1 a { text-decoration: none; }
 /* ==========================================================================
    5. Single Post - When you click on an individual post
@@ -217,7 +217,7 @@ pre .chunk { color: #aaa }
    ========================================================================== */
 
 /* The main wrapper for our pagination links */
-.pagination { position: relative; width: 80%; max-width: 700px; margin: 4rem auto; font-family: 'Open Sans', sans-serif; font-size: 1.3rem; color: #9EABB3; text-align: center; }
+.pagination { position: relative; width: 80%; max-width: 1200px; margin: 4rem auto; font-family: 'Open Sans', sans-serif; font-size: 1.3rem; color: #9EABB3; text-align: center; }
 .pagination a { color: #9EABB3; }
 /* Push the previous/next links out to the left/right */
 .older-posts, .newer-posts { position: absolute; display: inline-block; padding: 0 15px; border: #EBF2F6 2px solid; text-decoration: none; border-radius: 30px; transition: border ease 0.3s; }
