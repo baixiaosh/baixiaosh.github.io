@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>使用gulp搭建基于avalon的项目基础 | 柏小生</title>
+  <meta name="description" content="为什么不是我，而是别人" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="柏小生">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">柏小生</h1>
+            <h2 class="blog-description">为什么不是我，而是别人<button id="showMenu">菜单栏</button></h2>
+        </div>
+		
+        <div class="site-head-content inner">
+			<a class="icon-github" href="https://github.com/baixiaosh" target="_blank">
+				<span class="hidden">github</span>
+			</a>
+			<a class="icon-sina-weibo" href="http://weibo.com/3537475280/profile?topnav=1&wvr=6" target="_blank">
+				<span class="hidden">weibo</span>
+			</a>
+		</div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2015-04-03T06:07:12.521Z" itemprop="datePublished">
+          2015年4月3日
+      </time>
+    
+</span>
+    <h1 class="post-title">使用gulp搭建基于avalon的项目基础</h1>
+    <section class="post-content">
+      <p>此项目是根据本人公司项目的要求搭建的，也许适用于很多其他的大部分项目。</p>
+<h4 id="准备好gulp环境">准备好gulp环境</h4>
+<p>首先可以使用<a href="https://github.com/gulpjs/gulp" target="_blank" rel="external">gulp</a>创建项目，配置一下gulpfile.js文件</p>
+<p>下面是我自己的gulpfile.js文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//包含gulp   </span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line"><span class="comment">//包含我们的插件   </span></div><div class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>);</div><div class="line"><span class="keyword">var</span> minifyCss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</div><div class="line"><span class="keyword">var</span> minifyHTML = <span class="built_in">require</span>(<span class="string">'gulp-minify-html'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="keyword">var</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>);</div><div class="line"><span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>);</div><div class="line"><span class="keyword">var</span> path = {</div><div class="line">  jshintsrcjspath: [<span class="string">'./build/**/*.js'</span>, <span class="string">'!./build/**/*.min.js'</span>, <span class="string">'!./build/**/libs/**/*.js'</span>, <span class="string">'!./build/**/avalon.mobile.js'</span>],</div><div class="line">  srcjspath: [<span class="string">'./build/**/*.js'</span>, <span class="string">'!./build/**/*.min.js'</span>, <span class="string">'!./build/**/avalon.mobile.js'</span>],</div><div class="line">  srccsspath: [<span class="string">'./build/**/*.css'</span>, <span class="string">'!./build/**/*.min.css'</span>],</div><div class="line">  srcimagespath: [<span class="string">'./build/**/**/*.png'</span>],</div><div class="line">  srccopypath: [<span class="string">'./build/**/*.min.js'</span>, <span class="string">'./build/**/*.ico'</span>, <span class="string">'./build/**/*.txt'</span>, <span class="string">'./build/**/**/*.jpg'</span>],</div><div class="line">  srchtmlpath: [<span class="string">'./build/**/*.html'</span>],</div><div class="line">  distpath: <span class="string">'./assets'</span></div><div class="line">};</div><div class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(cb)</span> </span>{</div><div class="line">  <span class="comment">// You can use multiple globbing patterns as you would with `gulp.src`</span></div><div class="line">  del([<span class="string">'./assets'</span>], cb);</div><div class="line">});</div><div class="line"><span class="comment">//lint task  </span></div><div class="line">gulp.task(<span class="string">'jshint'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.src(path.jshintsrcjspath)</div><div class="line">	.pipe(jshint())</div><div class="line">	.pipe(jshint.reporter(<span class="string">'default'</span>));</div><div class="line">});</div><div class="line"><span class="comment">//编译sass  </span></div><div class="line"><span class="comment">/*gulp.task('compass', function () {</span></div><div class="line"> gulp.src(srcscsspath)</div><div class="line"> .pipe(compass({</div><div class="line"> comments: false,</div><div class="line"> css: '../assets/css',</div><div class="line"> sass: 'scss',</div><div class="line"> image: 'images'</div><div class="line"> }))</div><div class="line"> .pipe(minifyCss({keepSpecialComments: 0}))//keepSpecialComments保持所有特殊注解</div><div class="line"> .pipe(rename({ extname: '.min.css' }))</div><div class="line"> .pipe(gulp.dest('./assets/css'));</div><div class="line"> });*/</div><div class="line">gulp.task(<span class="string">'minifycss'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp.src(path.srccsspath)      <span class="comment">//压缩的文件</span></div><div class="line">	.pipe(minifyCss())             <span class="comment">//执行压缩</span></div><div class="line">	.pipe(gulp.dest(path.distpath));  <span class="comment">//输出文件夹;</span></div><div class="line">});</div><div class="line"><span class="comment">// 拷贝静态的图片</span></div><div class="line">gulp.task(<span class="string">'images'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp.src(path.srcimagespath)</div><div class="line">	<span class="comment">// Pass in options to the task</span></div><div class="line">	.pipe(imagemin({optimizationLevel: <span class="number">7</span>}))</div><div class="line">	.pipe(gulp.dest(path.distpath));</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//压缩单个JS文件   </span></div><div class="line">gulp.task(<span class="string">'uglifyjs'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.src(path.srcjspath)</div><div class="line">	<span class="comment">/* .pipe(rename({ extname: '.min.js' }))*/</span></div><div class="line">	.pipe(uglify())</div><div class="line">	.pipe(gulp.dest(path.distpath));</div><div class="line">});</div><div class="line">gulp.task(<span class="string">'copy'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.src(path.srccopypath)</div><div class="line">	.pipe(gulp.dest(path.distpath));</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">//拷贝html</span></div><div class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.src(path.srchtmlpath)</div><div class="line">	.pipe(minifyHTML({</div><div class="line">	  conditionals: <span class="literal">true</span>,</div><div class="line">	  spare: <span class="literal">true</span></div><div class="line">	}))</div><div class="line">	.pipe(gulp.dest(path.distpath));</div><div class="line">});</div><div class="line"><span class="comment">//拼接、简化JS文件</span></div><div class="line"><span class="comment">/*gulp.task('scripts', function () {</span></div><div class="line"> gulp.src(srcjspath)</div><div class="line"> .pipe(concat('all.js'))</div><div class="line"> .pipe(gulp.dest('./assets/js'))</div><div class="line"> .pipe(rename('all.min.js'))</div><div class="line"> .pipe(uglify())</div><div class="line"> .pipe(gulp.dest(distpath));</div><div class="line"> });*/</div><div class="line">gulp.task(<span class="string">'all'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.run([<span class="string">'jshint'</span>, <span class="string">'minifycss'</span>, <span class="string">'uglifyjs'</span>, <span class="string">'images'</span>, <span class="string">'html'</span>, <span class="string">'copy'</span>]);</div><div class="line">});</div><div class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  gulp.watch(path.srcjspath, [<span class="string">'uglifyjs'</span>]);</div><div class="line">  gulp.watch(path.srccsspath, [<span class="string">'minifycss'</span>]);</div><div class="line">  gulp.watch(path.srchtmlpath, [<span class="string">'html'</span>]);</div><div class="line">});</div><div class="line"><span class="comment">//默认任务</span></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'watch'</span>, <span class="string">'all'</span>]);</div></pre></td></tr></table></figure>
+
+<p>使用命令安装gulp插件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> gulp gulp-jshint gulp-minify-css gulp-uglify gulp-imagemin del gulp-minify-html <span class="comment">--save-dev</span></span></div></pre></td></tr></table></figure>
+
+<h4 id="项目目录">项目目录</h4>
+<p>我的项目目录是这样：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">==build        <span class="comment">//项目构建目录</span></div><div class="line"> | html        <span class="comment">//html文件目录</span></div><div class="line"> | images      <span class="comment">//图片文件目录</span></div><div class="line"> | javascripts <span class="comment">//javascript文件目录</span></div><div class="line"> | stylesheets <span class="comment">//样式文件目录</span></div><div class="line"> </div><div class="line"> ==assets      <span class="comment">//项目生成目录</span></div><div class="line"> | html        <span class="comment">//html文件目录</span></div><div class="line"> | images      <span class="comment">//图片文件目录</span></div><div class="line"> | javascripts <span class="comment">//javascript文件目录</span></div><div class="line"> | stylesheets <span class="comment">//样式文件目录</span></div></pre></td></tr></table></figure>
+
+
+    </section>
+    <footer class="post-footer">
+      <section class="share">
+    <h5>分享这篇文章</h5>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title= ?url=http://yoursite.com/2015/04/03/avalon-test/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2015/04/03/hello-world/">
+        ← Hello World
+    </a>
+    
+    
+</nav>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">柏小生</a> &copy; 2015 &bull; All rights reserved.</section>
+  </div>
+</footer>
+
+      <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>主页</span></a>
+
+          <a class="icon-news"  href="/archives"><span>所有文章</span></a>
+
+          <a class="icon-heart"  href="/about"><span>关于我</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
