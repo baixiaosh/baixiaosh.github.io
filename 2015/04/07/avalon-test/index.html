@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>搭建avalon移动端项目 | 柏小生</title>
+  <meta name="description" content="为什么不是我，而是别人" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="柏小生">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">柏小生</h1>
+            <h2 class="blog-description">为什么不是我，而是别人<button id="showMenu">菜单栏</button></h2>
+        </div>
+		
+        <div class="site-head-content inner">
+			<a class="icon-github" href="https://github.com/baixiaosh" target="_blank">
+				<span class="hidden">github</span>
+			</a>
+			<a class="icon-sina-weibo" href="http://weibo.com/3537475280/profile?topnav=1&wvr=6" target="_blank">
+				<span class="hidden">weibo</span>
+			</a>
+		</div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2015-04-07T02:16:55.592Z" itemprop="datePublished">
+          2015年4月7日
+      </time>
+    
+</span>
+    <h1 class="post-title">搭建avalon移动端项目</h1>
+    <section class="post-content">
+      <p>此项目是根据本人公司项目的要求搭建的，也许适用于很多其他的大部分项目。</p>
+<h4 id="准备好gulp环境">准备好gulp环境</h4>
+<p>首先可以使用<a href="https://github.com/gulpjs/gulp" target="_blank" rel="external">gulp</a>创建项目，配置一下gulpfile.js文件，我把gulpfile.js放于根目录下</p>
+<p>具体配置以及安装命令方法参见<a href="https://github.com/gulpjs/gulp" target="_blank" rel="external">这里</a></p>
+<h4 id="我的项目目录">我的项目目录</h4>
+<p>我的项目目录是这样：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">==build        <span class="comment">//项目构建目录</span></div><div class="line"> | html        <span class="comment">//html文件目录</span></div><div class="line"> | images      <span class="comment">//图片文件目录</span></div><div class="line"> | javascripts <span class="comment">//javascript文件目录</span></div><div class="line">	| libs     <span class="comment">//js库文件</span></div><div class="line"> | stylesheets <span class="comment">//样式文件目录</span></div><div class="line"> </div><div class="line">==gulpfile.js</div></pre></td></tr></table></figure>
+
+<h4 id="主要的文件如下">主要的文件如下</h4>
+<p>在程序中使用的avalonjs可以在<a href="https://github.com/baixiaosh/avalon" target="_blank" rel="external">这里</a>看到，同时s使用了<a href="https://github.com/RubyLouvre/mmRouter" target="_blank" rel="external">mmRouter</a><br>当你看到下面的时候会发现有个slideout.js文件，这是我们移动端用的侧边栏，我是拿别人的代码改来自己用，参见<a href="https://github.com/baixiaosh/slideout" target="_blank" rel="external">这里</a></p>
+<h5 id="main-html">main.html</h5>
+<p>build 目录下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ms-controller</span>=<span class="value">"main"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-capable"</span> <span class="attribute">content</span>=<span class="value">"yes"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-status-bar-style"</span> <span class="attribute">content</span>=<span class="value">"black"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"format-detection"</span> <span class="attribute">content</span>=<span class="value">"telephone=no, email=no"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"fragment"</span> <span class="attribute">content</span>=<span class="value">"!"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"stylesheets/normalize.css"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"stylesheets/sildeout.css"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"avalon.mobile.min.js"</span> <span class="attribute">data-main</span>=<span class="value">"javascripts/main"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="comment">&lt;!-- 这里引入最重要的js --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>柏小生<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">nav</span> <span class="attribute">id</span>=<span class="value">"BXS_menu"</span>&gt;</span><span class="comment">&lt;!-- 这里是我们的菜单 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#!/"</span> <span class="attribute">ms-click</span>=<span class="value">"slideoutClose"</span>&gt;</span>home<span class="tag">&lt;/<span class="title">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#!//test"</span> <span class="attribute">ms-click</span>=<span class="value">"slideoutClose"</span>&gt;</span>test<span class="tag">&lt;/<span class="title">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">nav</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"BXS_main"</span> <span class="attribute">ms-click</span>=<span class="value">"slideoutClose"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ms-view</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- 所有的页面都会在这里显示(当然除了菜单栏) --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"javascripts/libs/slideout.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="comment">&lt;!-- 引入的侧边栏插件 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> slideout = <span class="keyword">new</span> Slideout({</div><div class="line">    <span class="string">'panel'</span>: <span class="built_in">document</span>.getElementById(<span class="string">'BXS_main'</span>),</div><div class="line">    <span class="string">'menu'</span>: <span class="built_in">document</span>.getElementById(<span class="string">'BXS_menu'</span>),</div><div class="line">    <span class="string">'padding'</span>: <span class="number">220</span>,</div><div class="line">    <span class="string">'tolerance'</span>: <span class="number">85</span></div><div class="line">  });</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>avalon.mobile.min.js在build目录下</p>
+<h5 id="主要的main-js">主要的main.js</h5>
+<p>build/javascripts 目录下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config({<span class="comment">//配置avalonjs</span></div><div class="line">  baseUrl: <span class="string">'javascripts'</span>,<span class="comment">//基础路径</span></div><div class="line">  paths: {</div><div class="line">    avalon: <span class="string">'../avalon.mobile.min.js'</span></div><div class="line">  },</div><div class="line">  shim: {</div><div class="line">    avalon: {</div><div class="line">      exports: <span class="string">'avalon'</span></div><div class="line">    }</div><div class="line">  },</div><div class="line">  debug: <span class="literal">false</span></div><div class="line">});</div><div class="line"><span class="built_in">require</span>([<span class="string">'avalon'</span>, <span class="string">'ready!'</span>, <span class="string">'libs/mmState'</span>], <span class="function"><span class="keyword">function</span> <span class="params">(avalon)</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(avalon);</div><div class="line">  <span class="comment">//定义顶层的VM</span></div><div class="line">  avalon.define({</div><div class="line">    $id: <span class="string">'main'</span>,</div><div class="line">    slideoutClose: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">      slideout.close();</div><div class="line">    }</div><div class="line">  });</div><div class="line">  <span class="comment">//定义各种状态，内部会转换为一个路由表，交由mmRouter去处理</span></div><div class="line">  avalon.state(<span class="string">'index'</span>, {</div><div class="line">    controller: <span class="string">'main'</span>,</div><div class="line">    url: <span class="string">'/'</span>,</div><div class="line">    views: {</div><div class="line">      <span class="string">''</span>: {</div><div class="line">        templateUrl: <span class="string">'templates/index.html'</span> <span class="comment">//templates下的index.html片段</span></div><div class="line">      }</div><div class="line">    },</div><div class="line">    onBeforeEnter: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">      <span class="built_in">require</span>([<span class="string">'index'</span>], <span class="function"><span class="keyword">function</span><span class="params">(index)</span> </span>{</div><div class="line">        index.init();</div><div class="line">      });</div><div class="line">    },</div><div class="line">    onError: <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{</div><div class="line">      avalon.log(err);</div><div class="line">    }</div><div class="line">  });</div><div class="line">  avalon.state(<span class="string">'test'</span>, {</div><div class="line">    controller: <span class="string">'main'</span>,</div><div class="line">    url: <span class="string">'/test'</span>,</div><div class="line">    views: {</div><div class="line">      <span class="string">''</span>: {</div><div class="line">        templateUrl: <span class="string">'templates/test.html'</span><span class="comment">//templates下的test.html片段</span></div><div class="line">      }</div><div class="line">    },</div><div class="line">    onBeforeEnter: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">      <span class="built_in">require</span>([<span class="string">'test'</span>], <span class="function"><span class="keyword">function</span><span class="params">(test)</span> </span>{</div><div class="line">        test.init();</div><div class="line">      });</div><div class="line">    },</div><div class="line">    onError: <span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{</div><div class="line">      avalon.log(err);</div><div class="line">    }</div><div class="line">  });</div><div class="line">  <span class="comment">//启动历史管理器</span></div><div class="line">  avalon.history.start({</div><div class="line">    basepath: <span class="string">'/app'</span></div><div class="line">  });</div><div class="line">  <span class="comment">//开始扫描</span></div><div class="line">  avalon.scan();</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h5 id="以下两段为html片段">以下两段为html片段</h5>
+<p>路径build/templates</p>
+<p>index.html片段</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ms-controller</span>=<span class="value">"index"</span> <span class="attribute">id</span>=<span class="value">"index"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">ms-text</span>=<span class="value">"testName"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>test.html片段</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ms-controller</span>=<span class="value">"test"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">ms-text</span>=<span class="value">"testName"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h5 id="libs文件">libs文件</h5>
+<p>在libs下放了需要的js文件，包括mmState、mmHistory、mmRouter等</p>
+<h5 id="最后使用gulp命令生成assets目录">最后使用gulp命令生成assets目录</h5>
+<h5 id="参考资料">参考资料</h5>
+<p><a href="https://github.com/gulpjs/gulp" target="_blank" rel="external">https://github.com/gulpjs/gulp</a><br><a href="https://github.com/baixiaosh/avalon" target="_blank" rel="external">https://github.com/baixiaosh/avalon</a><br><a href="https://github.com/RubyLouvre/mmRouter" target="_blank" rel="external">https://github.com/RubyLouvre/mmRouter</a><br><a href="https://github.com/baixiaosh/slideout" target="_blank" rel="external">https://github.com/baixiaosh/slideout</a></p>
+<p>如果本文有什么不对的地方，希望大神们指出，以免误导其他撸码哥，谢谢</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="share">
+    <h5>分享这篇文章</h5>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title= ?url=http://www.baixiaosheng.xyz/2015/04/07/avalon-test/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+</section>
+
+    </footer>
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">评论</a></h4>	
+  <section id="comments">
+   <!-- 多说评论框 start -->
+<div id="ds-thread"  class="ds-thread" data-thread-key="2015/04/07/avalon-test/" data-title="搭建avalon移动端项目" data-url="http://www.baixiaosheng.xyz/2015/04/07/avalon-test/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"baixiaosheng"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+  </section>
+</div>
+
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    
+    <a class="older-posts" href="/2015/04/03/hello-world/">
+        Hello World →
+    </a>
+    
+</nav>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">柏小生</a> &copy; 2015 &bull; All rights reserved.</section>
+  </div>
+</footer>
+
+      <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>主页</span></a>
+
+          <a class="icon-news"  href="/archives"><span>所有文章</span></a>
+
+          <a class="icon-heart"  href="/about"><span>关于我</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
