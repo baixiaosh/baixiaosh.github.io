@@ -50,7 +50,7 @@ body { height: 100%; max-height: 100%; font-family: 'Open Sans', 'Helvetica Neue
  background: #D6EDFF;
  text-shadow: none;
 }
-::selection { color: #fff; background: #FF4F93; text-shadow: none; }
+::selection { color: #fff; background: #1F85C8; text-shadow: none; }
 h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; line-height: 1; margin-top: 0; }
 h1 { font-size: 4.8rem; line-height: 1.2em; letter-spacing: -2px; text-indent: -3px; }
 h2 { font-size: 4.2rem; line-height: 1.2em; letter-spacing: -1px; text-indent: -2px; }
