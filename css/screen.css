@@ -136,7 +136,7 @@ margin on the iframe, cause it breaks stuff. */
 .post-title { margin: 0; }
 .post-title a { text-decoration: none; }
 .post-excerpt p { margin: 1.6rem 0 0 0; font-size: 0.9em; line-height: 1.6em; }
-.post-meta { display: inline-block; margin: 0 0 5px 0; font-family: 'Open Sans', sans-serif; font-size: 1.5rem; color: #9EABB3; }
+.post-meta { display: inline-block; margin: 0 0 5px 0; font-family: 'Microsoft YaHei','Open Sans', sans-serif; font-size: 1.5rem; color: #9EABB3; }
 .post-meta a { color: #9EABB3; text-decoration: none; }
 .post-meta a:hover { color: #2980B9;text-decoration: underline; }
 .user-meta { position: relative; padding: 0.3rem 40px 0 100px; min-height: 77px; }
@@ -217,7 +217,7 @@ pre .chunk { color: #aaa }
    ========================================================================== */
 
 /* The main wrapper for our pagination links */
-.pagination { position: relative; width: 80%; max-width: 1200px; margin: 4rem auto; font-family: 'Open Sans', sans-serif; font-size: 1.3rem; color: #707C82; text-align: center; }
+.pagination { position: relative; width: 80%; max-width: 1200px; margin: 4rem auto; font-family: 'Microsoft YaHei','Open Sans', sans-serif; font-size: 1.3rem; color: #707C82; text-align: center; }
 .pagination a { color: #707C82; }
 /* Push the previous/next links out to the left/right */
 .older-posts, .newer-posts { position: absolute; display: inline-block; padding: 0 15px; border: #EBF2F6 2px solid; text-decoration: none; border-radius: 30px; transition: border ease 0.3s; }
@@ -229,7 +229,7 @@ pre .chunk { color: #aaa }
    8. Footer - The bottom of every page
    ========================================================================== */
 
-.site-footer { position: relative; margin: 8rem 0 0 0; padding: 4rem 0; border-top: #EBF2F6 1px solid; font-family: 'Open Sans', sans-serif; font-size: 1.3rem; line-height: 1.7em; color: #707C82; text-align: left; background: #f8f8f8; }
+.site-footer { position: relative; margin: 8rem 0 0 0; padding: 4rem 0; border-top: #EBF2F6 1px solid; font-family: 'Microsoft YaHei','Open Sans', sans-serif; font-size: 1.3rem; line-height: 1.7em; color: #707C82; text-align: left; background: #f8f8f8; }
 .site-footer a { color: #84ABBC; text-decoration: underline; }
 .site-footer a:hover { color: #50585D; }
 .poweredby .icon-ghost { font-weight: 700; text-decoration: none; }
