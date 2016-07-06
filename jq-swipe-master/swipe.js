@@ -60,6 +60,7 @@ var swipe = function (options) {
     clearInterval(inter);
   }, false);
   $that[0].addEventListener('touchmove', function (e) {
+    e.preventDefault();
     touchMoveX = e.targetTouches[0].clientX;
     var $active = $('.m-slide-active');
     var index = $slideContent.index($active);
