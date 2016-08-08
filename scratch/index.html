@@ -19,7 +19,7 @@ body {
 }
 
 .wrap img {
-  display: block;
+  display: none;
   max-width: 100%;
 }
 
@@ -38,6 +38,7 @@ body {
   <script>
   var img = document.getElementById('img');
   img.onload = function() {
+    img.style.display = 'block';
     var width = img.width;
     var height = img.height;
 
