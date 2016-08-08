@@ -14,33 +14,96 @@ body {
 }
 
 .wrap {
+  position: relative;
   width: 320px;
-  height: 200px;
-  background: url('test.jpg') 0 0/100% auto no-repeat;
+}
+
+.wrap img {
+  display: block;
+  max-width: 100%;
+}
+
+#test {
+  position: absolute;
+  top: 0;
+  left: 0
 }
 </style>
 
 <body>
-  <div id="con" class="wrap">
-    <canvas id="test" width="320" height="200"></canvas>
+  <div class="wrap">
+    <img id="img" src="test.jpg" alt="">
+    <canvas id="test"></canvas>
   </div>
   <script>
-  var canvas = document.getElementById('test');
-  var context = canvas.getContext('2d');
-  context.beginPath();
-  context.fillStyle = "#999";
-  context.fillRect(0, 0, 320, 200);
-  context.closePath();
-  context.globalCompositeOperation = "destination-out";
-  canvas.addEventListener('touchstart', function(e) {
+  var img = document.getElementById('img');
+  img.onload = function() {
+    var width = img.width;
+    var height = img.height;
+
+    var canvas = document.getElementById('test');
+    canvas.width = width;
+    canvas.height = height;
+
+    var context = canvas.getContext('2d');
+    var minV, maxV, minH, maxH;
+    minV = maxV = minH = maxH = 0;
+
+    context.beginPath();
+    context.fillStyle = "#aaa";
+    context.fillRect(0, 0, width, height);
+    context.closePath();
+
+    var scale = function(width, height, r) {
+      context.globalCompositeOperation = "destination-out";
+      context.fillStyle = "#000";
+      context.arc(width / 2, height / 2, r, 0, Math.PI * 2);
+      context.fill();
+      context.closePath();
+      if (!(r > Math.sqrt(width * width / 4 + height * height / 4))) {
+        setTimeout(function() {
+          scale(width, height, r + 5);
+        }, 15);
+      }
+    };
+    var setTouch = function(e) {
+      minV = e.touches[0].pageX <= minV ? e.touches[0].pageX : minV;
+      maxV = e.touches[0].pageX > maxV ? e.touches[0].pageX : maxV;
+      minH = e.touches[0].pageY <= minH ? e.touches[0].pageY : minH;
+      maxH = e.touches[0].pageY > maxH ? e.touches[0].pageY : maxH;
+
+    }
+    canvas.addEventListener('touchstart', function(e) {
+      if (!minV) {
+        minV = e.touches[0].pageX;
+      }
+      if (!maxV) {
+        maxV = e.touches[0].pageX;
+      }
+      if (!minH) {
+        minH = e.touches[0].pageY;
+      }
+      if (!maxH) {
+        maxH = e.touches[0].pageY;
+      }
+    });
     canvas.addEventListener('touchmove', function(e) {
+      context.globalCompositeOperation = "destination-out";
       context.beginPath();
-      context.fillStyle = "#f00";
+      context.fillStyle = "#000";
       context.arc(e.targetTouches[0].clientX, e.targetTouches[0].clientY, 20, 0, Math.PI * 2);
       context.fill();
       context.closePath();
+      setTouch(e);
     });
-  })
+
+    canvas.addEventListener('touchend', function(e) {
+      if ((maxV - minV) * (maxH - minH) >= 320 * 200 / 4) {
+        scale(320, 200, 5);
+      }
+
+    });
+  };
   </script>
 </body>
 
