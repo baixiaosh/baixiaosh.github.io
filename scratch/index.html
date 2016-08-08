@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+  <title>刮刮卡实例</title>
+</head>
+<style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  width: 320px;
+  height: 200px;
+  background: url('test.jpg') 0 0/100% auto no-repeat;
+}
+</style>
+
+<body>
+  <div id="con" class="wrap">
+    <canvas id="test" width="320" height="200"></canvas>
+  </div>
+  <script>
+  var canvas = document.getElementById('test');
+  var context = canvas.getContext('2d');
+  context.beginPath();
+  context.fillStyle = "#999";
+  context.fillRect(0, 0, 320, 200);
+  context.closePath();
+  context.globalCompositeOperation = "destination-out";
+  canvas.addEventListener('touchstart', function(e) {
+    canvas.addEventListener('touchmove', function(e) {
+      context.beginPath();
+      context.fillStyle = "#f00";
+      context.arc(e.targetTouches[0].clientX, e.targetTouches[0].clientY, 20, 0, Math.PI * 2);
+      context.fill();
+      context.closePath();
+    });
+  })
+  </script>
+</body>
+
+</html>
