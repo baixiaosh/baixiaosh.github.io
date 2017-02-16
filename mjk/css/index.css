@@ -10,6 +10,10 @@
   background-position: center bottom;
 }
 
+.index-item.bg2 {
+  background: #fff;
+}
+
 .index-item .item-title {
   font-size: 50px;
   color: #000;
@@ -66,6 +70,10 @@
 
 .index-item .item-sub.bg2 {
   background-image: url(../imgs/index-sub-2.png);
+}
+
+.index-item .item-sub.bg3 {
+  background-image: url(../imgs/index-sub-4.png);
 }
 
 .index-type {
@@ -156,6 +164,7 @@
 }
 
 .index-type li a:hover .ico:after {
+  -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
   border: 1px solid #e77715;
 }
@@ -233,6 +242,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -246,19 +256,194 @@
   font-size: 14px;
 }
 
-.index-case-more {
+.index-more {
   display: block;
   margin: 40px auto 0;
   width: 200px;
   height: 35px;
   background-color: transparent;
   text-align: center;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #000;
+  border: 1px solid #000;
   line-height: 35px;
 }
 
-.index-case-more:hover {
+.index-more.white {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.index-more:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.index-more.white:hover {
   background-color: #fff;
   color: #000;
+}
+
+.index-about {
+  height: 110px;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.index-about>.title {
+  float: left;
+  width: 160px;
+  height: 100%;
+  background-image: url(../imgs/index-sub-3.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #000;
+  position: relative;
+}
+
+.index-about>.title:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  background-color: #e5e5e5;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.index-about>.title:after {
+  content: "";
+  display: block;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  background-color: #e87e21;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.index-about>.des {
+  display: block;
+  margin-left: 200px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.index-about>.des p {
+  margin-bottom: 10px;
+}
+
+.index-about-list {
+  margin-top: 40px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.index-about-list .item {
+  display: inline-block;
+  width: 280px;
+  height: 330px;
+  background-color: #fff;
+  margin: 10px 5px;
+  font-size: 30px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.index-about-list .item:hover {
+  background-color: #e77715;
+}
+
+.index-about-list .item .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #2e2e2e;
+}
+
+.index-about-list .item:hover .info {
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.index-about-list .item .info >span {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #2e2e2e;
+  opacity: .8;
+}
+
+.index-about-list .item:hover .info >span {
+  color: #fff;
+}
+
+.index-new {
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.index-new .item {
+  float: left;
+  width: 32%;
+  height: 220px;
+  margin-top: 10px;
+  margin-left: 2%;
+  position: relative;
+  overflow: hidden;
+}
+
+.index-new .item:nth-child(3n+1) {
+  margin-left: 0;
+}
+
+.index-new .item .pic {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.index-new .item:hover .pic {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+.index-new .item .pic > img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.index-new .item .info {
+  position: absolute;
+  left: 5%;
+  bottom: 20px;
+  width: 90%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.index-new .item:hover .info {
+  background-color: #e77715;
 }
