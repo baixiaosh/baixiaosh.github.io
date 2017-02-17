@@ -331,6 +331,14 @@ footer .copy {
   overflow: hidden;
 }
 
+footer .copy a {
+  color: #eee;
+}
+
+footer .copy a:hover {
+  text-decoration: underline;
+}
+
 footer .info {
   width: 100%;
   padding: 60px 0;
