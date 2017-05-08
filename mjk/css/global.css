@@ -504,3 +504,14 @@ footer .form .form-submit button:hover {
     display: none;
   }
 }
+
+.top-img {
+  display: block;
+  width: 100%;
+  min-width: 1200px;
+}
+
+.top-img > img {
+  display: block;
+  width: 100%;
+}
