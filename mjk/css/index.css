@@ -165,6 +165,8 @@
 
 .index-type li a:hover .ico:after {
   -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
   border: 1px solid #e77715;
 }
@@ -228,7 +230,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: #e77715;
+  background-color: rgba(231, 119, 21, .8);
   color: #fff;
   text-align: center;
   line-height: 1.5;
@@ -245,6 +247,8 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms=transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -314,6 +318,8 @@
   height: 1px;
   background-color: #e5e5e5;
   -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -365,6 +371,8 @@
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 0;
@@ -382,6 +390,8 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #2e2e2e;
   z-index: 2;
@@ -390,6 +400,8 @@
 .index-about-list .item:hover .info {
   color: #fff;
   -webkit-transform: translate(-50%, -50%) scale(1.1);
+  -moz-transform: translate(-50%, -50%) scale(1.1);
+  -ms-transform: translate(-50%, -50%) scale(1.1);
   transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -432,6 +444,8 @@
 
 .index-new .item:hover .pic {
   -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
 
@@ -441,6 +455,8 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 

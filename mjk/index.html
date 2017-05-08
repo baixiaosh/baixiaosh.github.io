@@ -4,21 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>麦极克网络科技有限公司 | 官网</title>
-  <script type="text/javascript">
-  (function(window) {
-    var theUA = window.navigator.userAgent.toLowerCase();
-    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
-      var ieVersion = theUA.match(/msie\s\d+/)[0].match(/\d+/)[0] || theUA.match(/trident\s?\d+/)[0];
-      if (ieVersion < 10) {
-        $("#ie8show").removeClass("hide");
-      };
-    }
-  })(window);
-  </script>
   <link rel="stylesheet" href="plugin/swiper/swiper.min.css">
   <link rel="stylesheet" href="plugin/swiper/animate.min.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/index.css">
+  <script type="text/javascript" src="js/ie.js"></script>
 </head>
 
 <body>
@@ -35,25 +25,25 @@
       <div class="fr">
         <ul class="menu">
           <li>
-            <a href="">首页</a>
+            <a href="index.html">首页</a>
           </li>
           <li>
-            <a href="">解决方案</a>
+            <a href="solution.html">解决方案</a>
           </li>
           <li>
-            <a href="">案列</a>
+            <a href="case.html">案列</a>
           </li>
           <li>
-            <a href="">动态</a>
+            <a href="news.html">动态</a>
           </li>
           <li>
-            <a href="">关于我们</a>
+            <a href="about.html">关于我们</a>
           </li>
         </ul>
       </div>
     </div>
   </header>
-  <section class="main">
+  <section class="main animated fadeIn">
     <!-- banner start -->
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -94,7 +84,7 @@
       <div class="swiper-pagination"></div>
     </div>
     <!-- banner end -->
-    <div class="index-item">
+    <div class="index-item animated fadeIn">
       <div class="layout-center">
         <div class="item-title">我们能做什么</div>
         <div class="item-sub bg1">未来是创造体验的时代，我们为您提供全方位的互联网服务</div>
@@ -142,7 +132,7 @@
         </ul>
       </div>
     </div>
-    <div class="index-item bg1">
+    <div class="index-item bg1  animated fadeIn">
       <div class="item-title white">案例</div>
       <div class="item-sub white bg2">用作品见证我们的追求,悉心钻研，极致至上</div>
       <div class="index-case">
@@ -249,7 +239,7 @@
       </div>
       <a href="" class="index-more white">查看详情</a>
     </div>
-    <div class="index-item">
+    <div class="index-item animated fadeIn">
       <div class="layout-center">
         <div class="index-about">
           <div class="title">
@@ -284,7 +274,7 @@
         </div>
       </div>
     </div>
-    <div class="index-item bg2">
+    <div class="index-item bg2 animated fadeIn">
       <div class="layout-center">
         <div class="item-title">麦极克动态</div>
         <div class="item-sub bg3"></div>
@@ -312,7 +302,7 @@
       </div>
     </div>
   </section>
-  <footer>
+  <footer class="animated fadeIn">
     <div class="layout-center">
       <div class="footer-center">
         <div class="footer-title">联系我们</div>

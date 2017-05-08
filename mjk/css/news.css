@@ -1,0 +1,134 @@
+.news .title {
+  margin-top: 30px;
+  text-align: center;
+  color: #181818;
+  font-size: 36px;
+}
+
+.news .title:after {
+  content: "";
+  display: block;
+  margin: 10px auto;
+  width: 190px;
+  height: 3px;
+  background-color: #e87e21;
+}
+
+.news .title span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 40px;
+  color: #dadada;
+  vertical-align: middle;
+}
+
+.news .list {
+  margin: 0 auto;
+  width: 1199px;
+  overflow: hidden;
+}
+
+.news .list .item {
+  float: left;
+  width: 383px;
+  height: 220px;
+  margin-left: 25px;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.news .list .item:nth-child(3n+1) {
+  margin-left: 0;
+}
+
+.news .list .item .pic {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.news .list .item:hover .pic {
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+.news .list .item .pic > img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.news .list .item .info {
+  position: absolute;
+  left: 5%;
+  bottom: 10px;
+  width: 90%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.news .list .item:hover .info {
+  bottom: 20px;
+  background-color: #e77715;
+}
+
+.news-detail {
+  margin-top: 20px;
+  padding: 60px;
+  background-color: #f6f6f6;
+  color: #777;
+}
+
+.news-detail .title {
+  color: #5d5a57;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.news-detail .sub {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.news-detail .body {
+  padding: 20px 0;
+  border-top: 1px solid #a8a39d;
+  border-bottom: 1px solid #a8a39d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.news-detail .body img {
+  display: block;
+  max-width: 100%;
+  margin: 10px auto;
+}
+
+.news-detail .body p {
+  margin: 10px 0;
+}
+
+.news-detail .back {
+  display: inline-block;
+  margin: 10px 0;
+  color: #999;
+  font-size: 12px;
+}

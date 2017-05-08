@@ -33,13 +33,13 @@ table {
 
 body {
   min-width: 1200px;
-  font: 14px/normal "Microsoft Yahei", STHeiTi, arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 14px/normal "PingFang SC", "Helvetica neue", Helvetica, Tahoma, "lantinghei sc", "Microsoft Yahei", sans-serif;
   color: #666;
   background: #FFF none repeat scroll 0 0;
 }
 
 input, select, textarea, button {
-  font: 14px/normal "Microsoft Yahei", STHeiTi, arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 14px/normal "PingFang SC", "Helvetica neue", Helvetica, Tahoma, "lantinghei sc", "Microsoft Yahei", sans-serif;
 }
 
 i, cite, em {
@@ -55,11 +55,11 @@ a {
 }
 
 html, body, div, ul, li, a, i, img, span, :before, :after {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .clearfix:before, .clearfix:after {
@@ -87,6 +87,7 @@ html, body, div, ul, li, a, i, img, span, :before, :after {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 
@@ -234,7 +235,6 @@ header .menu {
 
 header .menu li {
   float: left;
-  padding: 0 30px;
   cursor: pointer;
 }
 
@@ -243,11 +243,27 @@ header .menu li:hover {
 }
 
 header .menu li >a {
+  display: block;
+  padding: 0 30px;
   color: #000;
+}
+
+header .menu li.active a, header .menu li:hover a {
+  color: #e77715;
 }
 
 .main {
   padding-top: 80px;
+}
+
+.top-img {
+  width: 100%;
+  min-width: 1200px;
+}
+
+.top-img>img {
+  display: block;
+  width: 100%;
 }
 
 .banner-item {
@@ -258,6 +274,9 @@ header .menu li >a {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #ddd;
   text-align: center;
@@ -439,4 +458,49 @@ footer .form .form-submit button {
 
 footer .form .form-submit button:hover {
   background-color: #d76705;
+}
+
+
+/*pager*/
+
+.pager {
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pager>a, .pager>span {
+  display: inline-block;
+  padding: 0 10px;
+  color: #5d5a57;
+  line-height: 1.8;
+}
+
+.pager>a+span, .pager>a+a, .pager>span+span, .pager>span+a {
+  margin-left: 5px;
+}
+
+.pager>a.active, .pager>a:hover {
+  color: #fff;
+  background-color: #e77715;
+}
+
+.pager>span {
+  background-color: #f5f5f5;
+}
+
+.ad {
+  display: block;
+  width: 100%;
+}
+
+.ad>img {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (max-width:1000px) {
+  header .menu {
+    display: none;
+  }
 }

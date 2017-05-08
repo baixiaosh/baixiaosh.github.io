@@ -1,0 +1,150 @@
+.about {
+  padding-bottom: 20px;
+}
+
+.about .title {
+  margin-top: 30px;
+  color: #181818;
+  font-size: 36px;
+}
+
+.about .title span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 40px;
+  color: #dadada;
+  vertical-align: middle;
+}
+
+.about .title:after {
+  content: "";
+  display: block;
+  margin: 20px 0 40px;
+  width: 100px;
+  height: 1px;
+  background-color: #181818;
+}
+
+.about .info {
+  display: table;
+  margin-bottom: 40px;
+  overflow: hidden;
+  color: #181818;
+}
+
+.about .info .static, .about .info .motto {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.about .info .static p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.about .info .static p + p {
+  margin-top: 20px;
+}
+
+.about .info .motto {
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.about .info .motto .en {
+  font-size: 14px;
+}
+
+.about .info .motto .inscribe {
+  font-size: 24px;
+  margin-top: 50px;
+}
+
+.team {
+  background-image: url(../imgs/about-bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.team .title {
+  padding: 45px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+}
+
+.team .title .name {
+  font-size: 40px;
+}
+
+.team .title .sub {
+  font-size: 18px;
+}
+
+.team .list {
+  overflow: hidden;
+}
+
+.team .list .item {
+  float: left;
+  position: relative;
+  width: 400px;
+  height: 280px;
+}
+
+.team .list .item .pic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.team .list .item .pic >img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms=transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.team .list .item .info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  padding: 50px;
+  opacity: 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.team .list .item:hover .info {
+  opacity: 1
+}
+
+.team .list .item .info .name {
+  font-weight: 700;
+}
+
+.team .list .item .info .job:after {
+  content: "";
+  display: block;
+  margin: 25px 0;
+  width: 40px;
+  height: 1px;
+  background-color: #fff;
+}
+
+.team .list .item .info .des {
+  font-size: 12px;
+}
