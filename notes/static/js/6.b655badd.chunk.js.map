@@ -1,1 +1,0 @@
-{"version":3,"sources":["page/Detail/index.jsx"],"names":["Index","Component"],"mappings":"iLAGMA,G,8KAEF,OAAO,uD,GAFSC,cAMLD","file":"static/js/6.b655badd.chunk.js","sourcesContent":["import React, { Component } from 'react';\nimport './index.less';\n\nclass Index extends Component {\n  render() {\n    return <div>详情页</div>;\n  }\n}\n\nexport default Index;\n"],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.less"],"names":[],"mappings":"AAAA,OACE,cACF","file":"10.d4f2b958.chunk.css","sourcesContent":[".index {\n  font-size: 20px;\n}\n\n@primary-color: #79a8a9;@link-color: #79a8a9;@border-radius-base: 2px;"]}
